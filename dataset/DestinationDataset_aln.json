@@ -1,0 +1,65 @@
+{
+	"name": "DestinationDataset_aln",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "id_sec",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "cod_maquinaria1",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "cod_maquinaria2",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "cod_trans_sec",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "fechaelaboracions",
+				"type": "date",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "porcentaje1",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "porcentaje2",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "tiempo_elabos",
+				"type": "double precision",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "transsecundaria"
+		}
+	}
+}
