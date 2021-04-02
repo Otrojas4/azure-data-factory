@@ -1,0 +1,152 @@
+{
+	"name": "COPIAR-postgres-tp-wood",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_aln",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "public.transsecundaria"
+					},
+					{
+						"name": "Destination",
+						"value": "public.transsecundaria"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "PostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "id_sec",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "id_sec",
+									"type": "Int32",
+									"physicalType": "integer"
+								}
+							},
+							{
+								"source": {
+									"name": "cod_maquinaria1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cod_maquinaria1",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "cod_maquinaria2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cod_maquinaria2",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "cod_trans_sec",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cod_trans_sec",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "fechaelaboracions",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "fechaelaboracions",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "porcentaje1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "porcentaje1",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "porcentaje2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "porcentaje2",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "tiempo_elabos",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "tiempo_elabos",
+									"type": "Double",
+									"physicalType": "double precision"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_aln",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_aln",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
